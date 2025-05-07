@@ -6,13 +6,21 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 11:31:13 by eaga-agu          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/05/05 12:24:56 by eaga-agu         ###   ########.fr       */
+=======
+/*   Updated: 2025/05/07 13:57:20 by eaga-agu         ###   ########.fr       */
+>>>>>>> 5fc5adc (7 mayo)
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+<<<<<<< HEAD
 char	*the_rest(char *save)
+=======
+char	*save_remaining(char *save)
+>>>>>>> 5fc5adc (7 mayo)
 {
 	int		i;
 	int		n;
@@ -35,7 +43,11 @@ char	*the_rest(char *save)
 	return (new_save);
 }
 
+<<<<<<< HEAD
 char	*make_line_from(char *save)
+=======
+char	*make_line(char *save)
+>>>>>>> 5fc5adc (7 mayo)
 {
 	int		i;
 	char	*line;
@@ -59,7 +71,11 @@ char	*make_line_from(char *save)
 	return (line);
 }
 
+<<<<<<< HEAD
 char	*read_until_enter(int fd, char *save)
+=======
+char	*read_until_line_end(int fd, char *save)
+>>>>>>> 5fc5adc (7 mayo)
 {
 	int		n_of_chars;
 	char	*tmp;
@@ -93,11 +109,20 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
+<<<<<<< HEAD
 	save = read_until_enter(fd, save);
 	if (save == NULL)
 		return (NULL);
 	line = make_line_from(save);
 	save = the_rest(save);
+=======
+	char	*read_until_line_end(int fd, char *save)
+	save = (fd, save);
+	if (save == NULL)
+		return (NULL);
+	line = make_line(save);
+	save = same_remaining(save);
+>>>>>>> 5fc5adc (7 mayo)
 	return (line);
 }
 
