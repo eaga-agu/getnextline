@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 16:34:03 by otboumeh          #+#    #+#             */
-/*   Updated: 2025/05/08 11:28:08 by eaga-agu         ###   ########.fr       */
+/*   Created: 2025/05/08 11:44:04 by eaga-agu          #+#    #+#             */
+/*   Updated: 2025/05/08 11:44:16 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int		fd;
 	char	*line;
 
-	fd = open("hola", O_RDONLY);
+	fd = open("hola.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("open");
