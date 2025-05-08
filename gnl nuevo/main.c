@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 15:17:53 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:39:16 by eaga-agu         ###   ########.fr       */
+/*   Created: 2025/05/08 14:08:28 by eaga-agu          #+#    #+#             */
+/*   Updated: 2025/05/08 14:50:28 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-
-#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
 #include <unistd.h>
+#include "get_next_line.h"
 
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(const char *s1, const char *s2);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
-char	*get_next_line(int fd);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+int	main(void)
+{
+	int		fd;
+	char	*next_line;
+	int		count;
 
-#endif
+	count = 0;
+	fd = open ("test.txt", O_RDONLY);
+	while (next_line)
+	{
+		next_line = get_next_line (fd);
+		if (next_line == NULL)
+			break;
+		count++;
+		printf ("[%d]:%s\n", count, next_line);
+		next_line = NULL;
+	}
+	close(fd);
+	return (0);
+}
