@@ -6,7 +6,7 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:08:28 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/08 15:49:09 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:38:25 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 	{
 		next_line = get_next_line (fd);
 		if (next_line == NULL)
-			break;
+			break ;
 		count++;
 		printf ("[%d]:%s\n", count, next_line);
 		free (next_line);

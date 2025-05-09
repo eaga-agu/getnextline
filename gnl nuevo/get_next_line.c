@@ -6,7 +6,7 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:17:37 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/09 14:28:02 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:42:13 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ char	*make_line(char *save)
 	if (!save || save[0] == '\0')
 		return (NULL);
 	while (save[i] && save[i] != '\n')
-			i++;
-	line = ft_calloc(i + (save[i] == '\n' ? 2 : 1), sizeof(char));
+		i++;
+	if (save[i] == '\n')
+        line = ft_calloc(i + 2, sizeof(char));
+	else
+        line = ft_calloc(i + 1, sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:17:20 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/09 14:15:02 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:42:59 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ char	*ft_strjoin_and_free(char *s1, const char *s2)
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*p;
-	size_t	total_size;
+	void			*p;
+	size_t			total_size;
+	unsigned char	*ptr;
 
 	total_size = nmemb * size;
 	p = malloc(total_size);
@@ -76,7 +77,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	if (!p)
 		return (NULL);
-	unsigned char *ptr = (unsigned char *)p;
+	ptr = (unsigned char *)p;
 	while (total_size--)
 	{
 		*ptr = 0;
@@ -84,7 +85,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (p);
 }
-
 
 char	*ft_strdup(const char *s)
 {
