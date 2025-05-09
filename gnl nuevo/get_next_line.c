@@ -6,7 +6,7 @@
 /*   By: eaga-agu <eaga-agu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:17:37 by eaga-agu          #+#    #+#             */
-/*   Updated: 2025/05/09 14:42:13 by eaga-agu         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:46:50 by eaga-agu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ char	*make_line(char *save)
 	while (save[i] && save[i] != '\n')
 		i++;
 	if (save[i] == '\n')
-        line = ft_calloc(i + 2, sizeof(char));
+		line = ft_calloc(i + 2, sizeof(char));
 	else
-        line = ft_calloc(i + 1, sizeof(char));
+		line = ft_calloc(i + 1, sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -73,17 +73,17 @@ char	*read_file(char *save, int fd)
 
 	tmp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!tmp)
-		return ( NULL);
+		return (NULL);
 	chars_read = 1;
-	while (chars_read > 0 )
+	while (chars_read > 0)
 	{
 		chars_read = read(fd, tmp, BUFFER_SIZE);
 		if (chars_read == -1)
 			return (free(tmp), free(save), NULL);
 		tmp[chars_read] = '\0';
 		save = ft_strjoin_and_free(save, tmp);
-		if(ft_strchr(save, '\n'))
-		break;
+		if (ft_strchr(save, '\n'))
+			break ;
 	}
 	free(tmp);
 	return (save);
@@ -97,11 +97,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	if (!save)
-	save = ft_calloc(1,sizeof(char));
+		save = ft_calloc (1, sizeof(char));
 	if (!ft_strchr(save, '\n'))
-	save = read_file(save, fd);
+		save = read_file(save, fd);
 	if (!save)
-	return (free(save), NULL);
+		return (free(save), NULL);
 	line = make_line(save);
 	save = save_remaining(save);
 	return (line);
